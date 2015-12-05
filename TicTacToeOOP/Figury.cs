@@ -33,9 +33,9 @@ namespace TicTacToeOOP
             }
         }
 
-        virtual public void rysuj()
+        virtual public void rysuj() //  funkcja wirtualna
         {
-            Console.WriteLine("   ");
+            Console.Write("   ");
         }
 
     }
@@ -44,7 +44,7 @@ namespace TicTacToeOOP
     {
         public Kolko()
         {
-            base._val = 1;
+            base._val = 1; // zmieniamy wartość zmiennej val, base oznacza, że odwołujemy się do elementów dziedziczonych (tutaj można to pominąć)
         }
 
         public override void rysujMulti(int line)
@@ -63,9 +63,9 @@ namespace TicTacToeOOP
             }
         }
 
-        public override void rysuj()
+        public override void rysuj() // nadpisanie funkcji wirtualnej
         {
-            Console.WriteLine(" O ");
+            Console.Write(" O ");
         }
 
         
@@ -94,9 +94,9 @@ namespace TicTacToeOOP
             }
         }
 
-        public override void rysuj()
+        public override void rysuj() // nadpisanie funkcji wirtualnej
         {
-            Console.WriteLine(" X ");
+            Console.Write(" X ");
         }
     }
 }

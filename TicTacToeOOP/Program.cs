@@ -12,32 +12,26 @@ namespace TicTacToeOOP
         {
             var nowaGra = new TablicaFigur();
 
-            //bool gOver = false;
-
-            for (;;)
+            for (;;) // niekończąca się pętla for
             {
-                nowaGra.Losuj();
-                nowaGra.rysujMulti();
-                //gOver = nowaGra.checkIfWin();
-                if(nowaGra.checkIfWin()) break;
-
-                //if (!gOver)
-                {
-
+                nowaGra.Losuj(); // ruch komputera
+                nowaGra.rysuj();
+                if(nowaGra.checkIfWin()) break; // sprawdzamy czy ktoś wygrał, jeśli tak to wychodzimy z petli
+                
                     int a = 0;
                     int b = 0;
-                    do
+                    do // nasz ruch
                     {
                         Console.Write("Podaj numer wiersza: ");
-                        a = int.Parse(Console.ReadLine());
+                        if (!int.TryParse(Console.ReadLine(), out a)) continue; // zamianiamy string z ReadLine() na inta, jeśli metoda TryParse zwróci false (czyli że dane były błędne) wymuszamy kolejne przejście pętli ('continue') żeby jeszcze raz móc wczytać dane
                         Console.WriteLine();
                         Console.Write("Podaj numer kolumny: ");
-                        b = int.Parse(Console.ReadLine());
+                        if (!int.TryParse(Console.ReadLine(), out b)) continue;
                         Console.WriteLine();
                     }
-                    while (!nowaGra.Add(new Krzyzyk(), a, b));
-                }
-                nowaGra.rysujMulti();
+                    while (!nowaGra.Add(new Krzyzyk(), a, b));  // pytamy usera o wiersz i kolumne dopóki dopóty nie poda dobrych danych, mechanizm jak w Losuj()
+                               
+                nowaGra.rysuj();
 
                 if (nowaGra.checkIfWin()) break;
 
